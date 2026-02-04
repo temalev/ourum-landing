@@ -12,8 +12,29 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.GITHUB_PAGES_BASE_URL 
       || (process.env.GITHUB_REPOSITORY_NAME ? `/${process.env.GITHUB_REPOSITORY_NAME}/` : '/'),
-    buildAssetsDir: '/_nuxt/'
+    buildAssetsDir: '/_nuxt/',
+    head: {
+      link: [
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com'
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: 'anonymous'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap'
+        }
+      ]
+    }
   },
+  
+  // Глобальные CSS файлы
+  css: ['../assets/css/main.css'],
+
   
   nitro: {
     prerender: {
