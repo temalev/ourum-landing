@@ -32,8 +32,8 @@ export default defineNuxtConfig({
     }
   },
   
-  // Глобальные CSS файлы
-  css: ['../assets/css/main.css'],
+  // Глобальные SCSS файлы
+  css: ['../assets/css/main.scss'],
 
   
   nitro: {
