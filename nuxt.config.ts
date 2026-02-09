@@ -33,7 +33,14 @@ export default defineNuxtConfig({
   },
   
   // Глобальные SCSS файлы
-  css: ['../assets/css/main.scss'],
+  css: ['/assets/css/main.scss'],
+  
+  // Настройка для Element Plus
+  vite: {
+    optimizeDeps: {
+      include: ['element-plus']
+    }
+  },
 
   
   nitro: {
