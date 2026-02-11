@@ -1,0 +1,44 @@
+> nuxt prepare
+
+
+[12:34:10 AM]  ERROR  Error while importing module @elemen
+[12:34:10 AM]  ERROR  Error while importing module @element-plus/nuxt: Error: Cannot find module './constants/key.mj
+[12:34:10 AM]  ERROR  Error while importing module @element-plus/nuxt: Error: Cannot find module './constants/key.mjs'
+Require stack:
+- /Users/artemlevkin/web/ourum-landing/node_modules/elemen
+- /Users/artemlevkin/web/ourum-landing/node_modules/element-plus/es/make-installer.mjs
+
+    at loadNuxtModuleInstance (node_modules/@nuxt/kit/dist
+    at loadNuxtModuleInstance (node_modules/@nuxt/kit/dist/index.mjs:805:54)
+    at async installModules (node_modules/@nuxt/kit/dist/i
+    at async installModules (node_modules/@nuxt/kit/dist/index.mjs:615:15)
+    at async initNuxt (node_modules/nuxt/dist/index.mjs:57
+    at async initNuxt (node_modules/nuxt/dist/index.mjs:5740:3)
+    at async loadNuxt (node_modules/nuxt/dist/index.mjs:59
+    at async loadNuxt (node_modules/nuxt/dist/index.mjs:5946:5)
+    at async loadNuxt (node_modules/@nuxt/kit/dist/index.m
+    at async loadNuxt (node_modules/@nuxt/kit/dist/index.mjs:1049:9)
+    at async Object.run (node_modules/@nuxt/cli/dist/prepa
+    at async Object.run (node_modules/@nuxt/cli/dist/prepare-CQwaXQtb.mjs:28:16)
+    at async runCommand (node_modules/citty/dist/index.mjs
+    at async runCommand (node_modules/citty/dist/index.mjs:316:16)
+    at async runCommand (node_modules/citty/dist/index.mjs
+    at async runCommand (node_modules/citty/dist/index.mjs:307:11)
+    at async runMain (node_modules/citty/dist/index.mjs:44
+    at async runMain (node_modules/citty/dist/index.mjs:445:7) 
+
+
+
+[12:34:10 AM]  ERROR  Error while importing module @elemen
+[12:34:10 AM]  ERROR  Error while importing module @element-plus/nuxt: Error: Cannot find module './constants/key.mj
+[12:34:10 AM]  ERROR  Error while importing module @element-plus/nuxt: Error: Cannot find module './constants/key.mjs'
+Require stack:
+- /Users/artemlevkin/web/ourum-landing/node_modules/elemen
+- /Users/artemlevkin/web/ourum-landing/node_modules/element-plus/es/make-installer.mjs
+
+npm error code 1
+npm error path /Users/artemlevkin/web/ourum-landing
+npm error command failed
+npm error command sh -c nuxt prepare
+npm error A complete log of this run can be found in: /Use
+npm error A complete log of this run can be found in: /Users/artemlevkin/.npm/_logs/2026-02-11T21_34_07_278Z-debug-0

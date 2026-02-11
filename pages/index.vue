@@ -1,11 +1,11 @@
 <template>
   <div class="index-page">
-    <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in items" :key="item.title">
-        <h3 text="2xl" justify="center">{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-      </el-carousel-item>
-    </el-carousel>
+      <el-carousel indicator-position="outside">
+        <el-carousel-item v-for="item in items" :key="item.title">
+          <h3 text="2xl" justify="center">{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </el-carousel-item>
+      </el-carousel>
 
     <section class="steps-section">
       <h2 class="steps-section__title">3 ПРОСТЫХ ШАГА ДО ПЕРВОЙ СДЕЛКИ</h2>
@@ -20,7 +20,9 @@
         </div>
       </div>
 
-      <el-button type="primary">Начать</el-button>
+      <ClientOnly>
+        <el-button type="primary">Начать</el-button>
+      </ClientOnly>
     </section>
 
     <section class="process-section">
@@ -46,6 +48,7 @@
 </template>
 <script setup>
 import { ref, h } from 'vue';
+import { ElCarousel, ElCarouselItem, ElTimeline, ElTimelineItem } from 'element-plus';
 
 const items = ref([
   {

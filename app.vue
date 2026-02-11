@@ -10,6 +10,7 @@
 
 <style lang="scss">
 @import '~/assets/styles/main.css';
+@import 'element-plus/dist/index.css';
 .app {
   width: 100%;
   min-height: 100vh;

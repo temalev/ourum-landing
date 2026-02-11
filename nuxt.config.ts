@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   // SSG (Static Site Generation) конфигурация
   // SSR должен быть true для SSG (SSG = предрендеренный SSR)
   ssr: true,
+
+  css: [
+    '~/assets/styles/main.css',
+    'element-plus/dist/index.css',
+  ],
   
   // Настройка для статической генерации (SSG)
   nitro: {
@@ -13,9 +18,7 @@ export default defineNuxtConfig({
       // Автоматически находить все ссылки на страницах и пререндерить их
       crawlLinks: true,
       // Явно указать маршруты для пререндеринга (опционально)
-      routes: [
-        '/',
-      ]
+      routes: ['/']
     },
     // Минификация для продакшена
     minify: true
@@ -27,5 +30,10 @@ export default defineNuxtConfig({
     head: {
 
     }
-  }
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['element-plus'],
+    },
+  },
 })
