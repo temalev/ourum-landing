@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <div class="header__logo">
-        <img :src="logoUrl" alt="OURUM" class="header__logo-img" />
+        <img src="@/public/img/OURUM.svg" alt="OURUM" class="header__logo-img" />
       </div>
       <nav class="header__nav">
         <a href="#" class="header__nav-link">Главная</a>
@@ -14,7 +14,6 @@
 </template>
 
 <script setup>
-const logoUrl = new URL('../assets/img/OURUM.svg', import.meta.url).href
 </script>
 
 <style lang="scss" scoped>

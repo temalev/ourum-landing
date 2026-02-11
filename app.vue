@@ -8,7 +8,8 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import '~/assets/styles/main.css';
 .app {
   width: 100%;
   min-height: 100vh;

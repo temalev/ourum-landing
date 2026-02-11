@@ -2,23 +2,32 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  css: [
-    '~/assets/styles/main.scss',
-    'element-plus/dist/index.css',
-  ],
-  app: {
-    baseURL: (globalThis.process?.env?.NUXT_PUBLIC_BASE_URL as string) || '/',
-  },
-  // Настройки для SSG
+  
+  // SSG (Static Site Generation) конфигурация
+  // SSR должен быть true для SSG (SSG = предрендеренный SSR)
+  ssr: true,
+  
+  // Настройка для статической генерации (SSG)
   nitro: {
     prerender: {
+      // Автоматически находить все ссылки на страницах и пререндерить их
       crawlLinks: true,
+      // Явно указать маршруты для пререндеринга (опционально)
+      routes: [
+        '/',
+        '/lash',
+        '/brows-lamination'
+      ]
     },
+    // Минификация для продакшена
+    minify: true
   },
-  // Оптимизация для Element Plus
-  vite: {
-    optimizeDeps: {
-      include: ['element-plus'],
-    },
-  },
+  
+  // Настройка роутинга
+  app: {
+    baseURL: '/',
+    head: {
+
+    }
+  }
 })
