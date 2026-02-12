@@ -44,6 +44,8 @@
         </el-timeline>
       </div>
     </section>
+
+    <ContactBlock />
   </div>
 </template>
 <script setup>
