@@ -133,119 +133,58 @@ const items = ref([
   },
 ]);
 
-// Иконки для шагов
+// Импорт иконок
+import UserPlusIcon from '~/components/icons/UserPlusIcon.vue';
+import CreditCardIcon from '~/components/icons/CreditCardIcon.vue';
+import TrendingUpIcon from '~/components/icons/TrendingUpIcon.vue';
+
+// Обертки для иконок с градиентным фоном
 const RegistrationIcon = () => h('div', {
   style: {
-    width: '60px',
-    height: '60px',
+    width: '64px',
+    height: '64px',
     background: 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)',
-    borderRadius: '12px',
+    borderRadius: '16px',
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)',
     color: 'white',
-    fontSize: '10px',
-    fontWeight: 'bold',
-    padding: '8px',
   }
 }, [
-  h('div', 'LOGIN'),
-  h('div', { style: { marginTop: '4px', letterSpacing: '2px' } }, '*****')
+  h(UserPlusIcon)
 ]);
 
 const ReplenishmentIcon = () => h('div', {
   style: {
-    width: '60px',
-    height: '60px',
+    width: '64px',
+    height: '64px',
     background: 'linear-gradient(135deg, #F97316 0%, #FB923C 100%)',
-    borderRadius: '12px',
+    borderRadius: '16px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'relative',
+    boxShadow: '0 4px 12px rgba(249, 115, 22, 0.3)',
+    color: 'white',
   }
 }, [
-  h('div', {
-    style: {
-      width: '40px',
-      height: '30px',
-      background: 'rgba(255, 255, 255, 0.3)',
-      borderRadius: '4px',
-      position: 'absolute',
-      top: '15px',
-      left: '10px',
-    }
-  }),
-  h('div', {
-    style: {
-      width: '40px',
-      height: '30px',
-      background: 'rgba(255, 255, 255, 0.5)',
-      borderRadius: '4px',
-      position: 'absolute',
-      top: '20px',
-      left: '15px',
-    }
-  })
+  h(CreditCardIcon)
 ]);
 
 const TradingIcon = () => h('div', {
   style: {
-    width: '60px',
-    height: '60px',
+    width: '64px',
+    height: '64px',
     background: 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
-    borderRadius: '12px',
+    borderRadius: '16px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'relative',
+    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
+    color: 'white',
   }
 }, [
-  h('div', {
-    style: {
-      width: '20px',
-      height: '20px',
-      background: 'rgba(255, 255, 255, 0.8)',
-      borderRadius: '4px',
-      position: 'absolute',
-      top: '12px',
-      left: '12px',
-      transform: 'rotate(45deg)',
-    }
-  }),
-  h('div', {
-    style: {
-      width: '16px',
-      height: '16px',
-      background: 'rgba(255, 255, 255, 0.6)',
-      borderRadius: '50%',
-      position: 'absolute',
-      bottom: '12px',
-      right: '12px',
-    }
-  }),
-  h('svg', {
-    width: '30',
-    height: '30',
-    viewBox: '0 0 30 30',
-    style: { position: 'absolute', opacity: 0.6 }
-  }, [
-    h('path', {
-      d: 'M15 5 L20 10 L15 15 M20 10 L10 10',
-      stroke: 'white',
-      'stroke-width': '2',
-      fill: 'none',
-      'stroke-linecap': 'round'
-    }),
-    h('path', {
-      d: 'M15 25 L10 20 L15 15 M10 20 L20 20',
-      stroke: 'white',
-      'stroke-width': '2',
-      fill: 'none',
-      'stroke-linecap': 'round'
-    })
-  ])
+  h(TrendingUpIcon)
 ]);
 
 const steps = ref([
