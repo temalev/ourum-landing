@@ -1,6 +1,6 @@
 <template>
   <div class="index-page">
-    <Carousel :items="items" :autoplay="false">
+    <Carousel :items="items" :autoplay="true" :interval="10000">
       <template #default="{ item }">
         <div class="carousel-content">
           <h3 class="carousel-title">{{ item.title }}</h3>

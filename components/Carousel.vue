@@ -1,5 +1,8 @@
 <template>
-  <div class="carousel">
+  <div 
+    class="carousel"
+    :style="{ '--interval': `${props.interval}ms` }"
+  >
     <div class="carousel__container">
       <div 
         class="carousel__track"
@@ -47,7 +50,13 @@
         :class="{ 'carousel__indicator--active': index === currentIndex }"
         @click="goTo(index)"
         :aria-label="`Перейти к слайду ${index + 1}`"
-      />
+      >
+        <span 
+          v-if="index === currentIndex && props.autoplay"
+          class="carousel__indicator-progress"
+          :key="`progress-${currentIndex}`"
+        />
+      </button>
     </div>
   </div>
 </template>
@@ -75,16 +84,19 @@ let intervalId = null;
 
 const next = () => {
   currentIndex.value = (currentIndex.value + 1) % props.items.length;
+  resetAutoplay();
 };
 
 const prev = () => {
   currentIndex.value = currentIndex.value === 0 
     ? props.items.length - 1 
     : currentIndex.value - 1;
+  resetAutoplay();
 };
 
 const goTo = (index) => {
   currentIndex.value = index;
+  resetAutoplay();
 };
 
 const startAutoplay = () => {
@@ -97,6 +109,13 @@ const stopAutoplay = () => {
   if (intervalId) {
     clearInterval(intervalId);
     intervalId = null;
+  }
+};
+
+const resetAutoplay = () => {
+  if (props.autoplay) {
+    stopAutoplay();
+    startAutoplay();
   }
 };
 
@@ -192,6 +211,7 @@ onUnmounted(() => {
   }
 
   &__indicator {
+    position: relative;
     width: 30px;
     height: 4px;
     border-radius: 2px;
@@ -200,15 +220,35 @@ onUnmounted(() => {
     cursor: pointer;
     transition: all 0.3s ease;
     pointer-events: auto;
+    overflow: hidden;
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.5);
     }
 
     &--active {
-      background-color: #3B82F6;
+      background-color: rgba(255, 255, 255, 0.3);
       width: 40px;
     }
+  }
+
+  &__indicator-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    animation: progressBar var(--interval) linear forwards;
+  }
+}
+
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
   }
 }
 
