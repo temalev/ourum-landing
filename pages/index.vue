@@ -22,7 +22,8 @@
         </div>
       </div>
 
-      <div class="cta-block">
+      <div class="cta-block" ref="ctaBlock" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
+        <div class="cta-block__glow" ref="ctaGlow"></div>
         <div class="cta-block__content">
           <div class="cta-block__badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -90,6 +91,28 @@
 </template>
 <script setup>
 import { ref, h } from 'vue';
+
+// Ссылки на элементы
+const ctaBlock = ref(null);
+const ctaGlow = ref(null);
+
+// Обработчик движения мыши для эффекта свечения
+const handleMouseMove = (e) => {
+  if (!ctaBlock.value || !ctaGlow.value) return;
+  
+  const rect = ctaBlock.value.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  
+  ctaGlow.value.style.opacity = '1';
+  ctaGlow.value.style.background = `radial-gradient(circle 200px at ${x}px ${y}px, rgba(59, 130, 246, 0.3), transparent)`;
+};
+
+// Скрываем свечение при уходе мыши
+const handleMouseLeave = () => {
+  if (!ctaGlow.value) return;
+  ctaGlow.value.style.opacity = '0';
+};
 
 const items = ref([
   {
@@ -411,6 +434,18 @@ const activities = ref([
     height: 100%;
     background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
     animation: pulse 4s ease-in-out infinite;
+  }
+
+  &__glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
   }
 
   &__content {
