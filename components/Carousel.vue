@@ -113,7 +113,6 @@ onUnmounted(() => {
 .carousel {
   position: relative;
   width: 100%;
-  margin: 40px 0;
   border: 1px solid #2C2C2C;
   background-color: rgba(46, 46, 46, 0.29);
   border-radius: 8px;
