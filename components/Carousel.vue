@@ -74,19 +74,16 @@ const currentIndex = ref(0);
 let intervalId = null;
 
 const next = () => {
-  console.log('Next clicked', currentIndex.value);
   currentIndex.value = (currentIndex.value + 1) % props.items.length;
 };
 
 const prev = () => {
-  console.log('Prev clicked', currentIndex.value);
   currentIndex.value = currentIndex.value === 0 
     ? props.items.length - 1 
     : currentIndex.value - 1;
 };
 
 const goTo = (index) => {
-  console.log('Go to', index);
   currentIndex.value = index;
 };
 
@@ -104,12 +101,10 @@ const stopAutoplay = () => {
 };
 
 onMounted(() => {
-  console.log('Carousel mounted, items:', props.items.length);
   startAutoplay();
 });
 
 onUnmounted(() => {
-  console.log('Carousel unmounted');
   stopAutoplay();
 });
 </script>

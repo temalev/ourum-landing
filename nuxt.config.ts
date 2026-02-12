@@ -26,16 +26,20 @@ export default defineNuxtConfig({
       // Явно указать маршруты для пререндеринга (опционально)
       routes: ['/']
     },
-    // Отключаем минификацию для предотвращения проблем
-    minify: false
+    minify: false // Отключаем из-за проблем с terser
   },
   
   // Настройка роутинга
   app: {
-    baseURL: '/',
+    baseURL: '/ourum-landing/', // Важно для GitHub Pages проектного репозитория
     head: {
 
     }
+  },
+
+  // Настройки для GitHub Pages
+  experimental: {
+    payloadExtraction: false, // Отключаем payload extraction для лучшей работы на статических хостингах
   },
   // vite: {
   //   optimizeDeps: {
