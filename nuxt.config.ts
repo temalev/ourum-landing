@@ -7,10 +7,9 @@ export default defineNuxtConfig({
   // SSR должен быть true для SSG (SSG = предрендеренный SSR)
   ssr: true,
 
-  css: [
-    '~/assets/styles/main.css',
-    'element-plus/dist/index.css',
-  ],
+  modules: ['@element-plus/nuxt'],
+
+  css: ['~/assets/styles/main.css'],
   
   // Настройка для статической генерации (SSG)
   nitro: {

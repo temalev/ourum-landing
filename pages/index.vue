@@ -2,7 +2,7 @@
   <div class="index-page">
       <el-carousel indicator-position="outside">
         <el-carousel-item v-for="item in items" :key="item.title">
-          <h3 text="2xl" justify="center">{{ item.title }}</h3>
+          <h3 justify="center">{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </el-carousel-item>
       </el-carousel>
@@ -20,9 +20,7 @@
         </div>
       </div>
 
-      <ClientOnly>
         <el-button type="primary">Начать</el-button>
-      </ClientOnly>
     </section>
 
     <section class="process-section">
@@ -48,7 +46,6 @@
 </template>
 <script setup>
 import { ref, h } from 'vue';
-import { ElCarousel, ElCarouselItem, ElTimeline, ElTimelineItem } from 'element-plus';
 
 const items = ref([
   {
