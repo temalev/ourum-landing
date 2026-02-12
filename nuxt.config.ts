@@ -9,7 +9,14 @@ export default defineNuxtConfig({
 
   modules: ['@element-plus/nuxt'],
 
-  css: ['~/assets/styles/main.css'],
+  elementPlus: {
+    importStyle: 'css',
+  },
+
+  css: [
+    'element-plus/dist/index.css',
+    '~/assets/styles/main.css',
+  ],
   
   // Настройка для статической генерации (SSG)
   nitro: {
@@ -19,8 +26,8 @@ export default defineNuxtConfig({
       // Явно указать маршруты для пререндеринга (опционально)
       routes: ['/']
     },
-    // Минификация для продакшена
-    minify: true
+    // Отключаем минификацию для предотвращения проблем
+    minify: false
   },
   
   // Настройка роутинга
@@ -30,9 +37,9 @@ export default defineNuxtConfig({
 
     }
   },
-  vite: {
-    optimizeDeps: {
-      include: ['element-plus'],
-    },
-  },
+  // vite: {
+  //   optimizeDeps: {
+  //     include: ['element-plus'],
+  //   },
+  // },
 })

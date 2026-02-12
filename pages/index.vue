@@ -1,11 +1,13 @@
 <template>
   <div class="index-page">
-      <el-carousel indicator-position="outside">
-        <el-carousel-item v-for="item in items" :key="item.title">
-          <h3 justify="center">{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
-        </el-carousel-item>
-      </el-carousel>
+    <Carousel :items="items" :autoplay="false">
+      <template #default="{ item }">
+        <div class="carousel-content">
+          <h3 class="carousel-title">{{ item.title }}</h3>
+          <p v-if="item.description" class="carousel-description">{{ item.description }}</p>
+        </div>
+      </template>
+    </Carousel>
 
     <section class="steps-section">
       <h2 class="steps-section__title">3 ПРОСТЫХ ШАГА ДО ПЕРВОЙ СДЕЛКИ</h2>
@@ -53,16 +55,16 @@ const items = ref([
     description: 'Наша компания предоставляет услуги по реализации майнинговых доходов в соответствии с законодательством РФ.',
   },
   {
-    title: '2',
-    image: 'https://picsum.photos/200/300',
+    title: 'Безопасность и надежность',
+    description: 'Гарантируем полную конфиденциальность и защиту ваших активов на всех этапах сделки.',
   },
   {
-    title: '3',
-    image: 'https://picsum.photos/200/300',
+    title: 'Выгодные условия',
+    description: 'Минимальные комиссии и лучший курс обмена на рынке для ваших майнинговых доходов.',
   },
   {
-    title: '4',
-    image: 'https://picsum.photos/200/300',
+    title: 'Быстрое обслуживание',
+    description: 'Обработка заявок за 15 минут, получение средств в течение 24 часов.',
   },
 ]);
 
@@ -229,11 +231,40 @@ const activities = ref([
   padding: 20px;
 }
 
-.el-carousel {
-  margin: 40px;
-  padding: 20px;
-  border: 1px solid #2C2C2C;
-  background-color: rgba(46, 46, 46, 0.29);
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  max-width: 800px;
+}
+
+.carousel-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+}
+
+@media (max-width: 768px) {
+  .carousel-title {
+    font-size: 24px;
+  }
+
+  .carousel-description {
+    font-size: 16px;
+  }
 }
 
 .steps-section {
